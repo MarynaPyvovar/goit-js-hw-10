@@ -30,7 +30,7 @@ function renderContent(data) {
     return renderCountryInfo(data[0]);
   }
 
-  if (data.length > 2 && data.length < 10) {
+  if (data.length >= 2 && data.length <= 10) {
     return renderList(data);
   }
 
@@ -41,7 +41,7 @@ function renderContent(data) {
     return;
   }
 
-  if (data.status !== 'ok') {
+  if (data.status === 404) {
     Notiflix.Notify.failure('Oops, there is no country with that name');
   }
 }
