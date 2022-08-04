@@ -27,7 +27,6 @@ function renderContent(data) {
   countryInfo.innerHTML = '';
   countryList.innerHTML = '';
   if (data.length === 1) {
-    console.log(data);
     return renderCountryInfo(data[0]);
   }
 
@@ -59,7 +58,7 @@ function renderCountryInfo({
         <p><span class="heading">Population: </span>${population}</p>
         <p><span class="heading">Languages: </span>${Object.values(
           languages
-        )}</p>`;
+        ).join(', ')}</p>`;
   countryInfo.insertAdjacentHTML('beforeend', country);
 
   const headingText = document.querySelectorAll('.heading');
