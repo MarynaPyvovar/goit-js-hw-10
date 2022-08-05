@@ -26,24 +26,23 @@ function handleSearch() {
 function renderContent(data) {
   countryInfo.innerHTML = '';
   countryList.innerHTML = '';
-  if (data.length === 1) {
+
+  if (data?.length === 1) {
     return renderCountryInfo(data[0]);
   }
 
-  if (data.length >= 2 && data.length <= 10) {
+  if (data?.length >= 2 && data.length <= 10) {
     return renderList(data);
   }
 
-  if (data.length > 10) {
+  if (data?.length > 10) {
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
     );
     return;
   }
 
-  if (data.status === 404) {
-    Notiflix.Notify.failure('Oops, there is no country with that name');
-  }
+  Notiflix.Notify.failure('Oops, there is no country with that name');
 }
 
 function renderCountryInfo({
